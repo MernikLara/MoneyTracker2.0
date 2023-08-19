@@ -1,0 +1,134 @@
+body{
+    background-color: #E1F6D9;
+    text-align: center;
+}
+
+.meni {
+    overflow: hidden;
+    background-color: #308CA4;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  .meni a {
+    float: left;
+    display: block;
+    color: #98c1cf;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 20px;
+  }
+
+  
+  .meni a:hover {
+    background: #5da4b6;
+    color: white;
+    text-shadow: #308CA4;
+  }
+
+#odjava{
+    float: right  !important;
+  }
+
+#prijava{
+margin: 150px;
+}
+
+.budget{
+  display: flex;
+  margin-top: 30px!important;
+  margin-left: 300px;
+  flex-direction: row;
+  max-width: 500px;
+}
+
+.overview{
+    margin-top: 50px!important;
+    display: inline-block;
+    position: fixed;
+}
+
+.budget1{
+  display: flex;
+  margin-top: 50px!important;
+  flex-direction: row;
+  width: 100%  !important;
+}
+
+.nasveti{
+  padding: 20px;
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  display: flex;
+  margin-left: 300px;
+
+}
+
+.nasveti1{
+  margin: 5px;
+  padding: 20px;
+  display: inline-block;
+
+  text-align: left;
+
+}
+
+
+.logo{
+    display: inline-block;
+    position: fixed;
+    left: 0;
+    top: 60px;
+    background-color: #5da4b667;
+    width: 300px;
+    height: 100%;
+    font-style: italic;
+    font-size: 25px;
+}
+
+.avatar{
+    margin: 10px;
+    display: inline-block;
+    position: fixed;
+    right: 0;
+    top: 55px
+}
+
+.poraba{
+  margin-top: 90px;
+  margin-left: 300px;
+}
+
+.card{
+background-color: #5da4b667;  
+}
+
+.uporabnik{
+  margin: 5px;
+  display: inline-block;
+  position: fixed;
+  right: 40px;
+  top: 51px
+}
+
+
+
+#tableContainer tr:nth-child(even){
+    background-color: #a8f0e0;
+    }
+
+#tableContainer table {
+  width: 100%;
+}
+.buttonRow{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.prijava1{
+
+  float: left;
+}
