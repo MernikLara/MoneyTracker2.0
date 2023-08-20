@@ -47,9 +47,13 @@
     <div class="poraba">
     <h2>Your monthly spending tracking</h2>
     <h3> Your amount: </h3>
-
+    <div id="bugetAmount"></div>
     <div class="card">
-    <h3> Category name: </h3>    
+    <h3> Category name: </h3>  
+    <div class="card-container">
+
+    </div>
+    
     </div>
     </div>
 
@@ -57,6 +61,47 @@
    
 
     <script src="baseJS.js">
+    </script>
+    <script>
+        
+$( document ).ready(function() {
+  // Handler for .ready() called.
+  $.ajax({
+    url: 'getBuget.php',
+    type: 'post',
+    success:function(data){
+  if(data.status === "success"){
+    $("#bugetAmount")[0].innerHTML = data.buget;
+    localStorage.setItem('bugetAmount', data.buget);
+    
+    updateAmount();
+    console.log(data);
+  }
+  else{
+    console.log(data);
+  }
+}
+});
+
+$.ajax({
+  url: 'getBugetCategory.php',
+  type: 'post',
+  success:function(data){
+if(data.status === "success"){
+  //$("#bugetAmount")[0].innerHTML = data.buget;  
+localStorage.setItem('bugetCategory', JSON.stringify(data.data));
+let array = data.data;
+  array.forEach(element => {
+    let bugetCardElement = generateBugetCard(element.category, element.spend, element.max, element.averageExpense);
+    document.querySelector('.card-container').appendChild(bugetCardElement);
+  });
+}
+else{
+  console.log(data);
+}
+}
+});
+});
     </script>
 </body>
 

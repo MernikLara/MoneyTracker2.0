@@ -10,7 +10,11 @@
     <title>Your financial overview</title>
     <link rel="stylesheet" href="MoneyTracker.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
 </head>
 
 <body>
@@ -36,10 +40,32 @@
     <div id="tableContainer"></div>
     <div class="overview">
         <h1> Your financial overview </h1>
-        <button id="exportPdfButton" onclick="exportTableToPdf()">Export as PDF</button>
+    <div class="pieChartContainer">
+        <canvas id="pieChart"></canvas>
+    </div>
+        <button id="exportPdfButton">Export as PDF</button>
     </div>
     
-    <script src="statsJS.js"></script>
+    <script src="baseJS.js"></script>
+    <script>
+        
+    $( document ).ready(function() {
+        generatePieChart();
+    });
+    
+
+    function saveToPDF() {
+        window.jsPDF = window.jspdf.jsPDF;
+        const canvas = document.getElementById('pieChart');
+        const pdf = new jsPDF();
+
+        const canvasImgData = canvas.toDataURL("image/jpeg", 1.0);
+        pdf.addImage(canvasImgData, 'JPEG', 10, 10, 190, 100);
+
+        pdf.save("pie_chart.pdf");
+    }
+        document.getElementById('exportPdfButton').addEventListener('click', saveToPDF);
+    </script>
 </body>
 
 </html>
